@@ -9,8 +9,8 @@ phases:
       - pip install aws-sam-cli
   pre_build:
     commands:
-      - echo "installing npm packages on hello-sam"
-      - cd sam-hello && npm install && cd -
+      - echo "installing npm packages on hello-world"
+      - cd hello-world && npm install && cd -
      
   build:
     commands:
