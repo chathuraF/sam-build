@@ -2,7 +2,7 @@ const axios = require('axios')
 
 exports.lambdaHandler = async (event, context) => {
   let res;
-  axios.get('https://jsonplaceholder.typicode.com/todos/1')
+  await axios.get('https://jsonplaceholder.typicode.com/todos/1')
   .then(function (response) {
     console.log(response);
     return {
