@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - echo installing sam 
+      - pip install aws-sam-cli
+  pre_build:
+    commands:
+      - echo "installing npm packages on hello-sam"
+      - cd sam-hello && npm install && cd -
+     
+  build:
+    commands:
+      - echo build started at `date` for environemnt $ENV_NAME
+      - sam build && sam package --s3-bucket janahitha-lambda-dev --output-template-file sam-template.yaml
+  post_build:
+    commands:
+      - echo deployment completed at `date`
+
+artifacts:
+  type: zip
+  files:
+    - sam-template.yaml
