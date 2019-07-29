@@ -14,7 +14,7 @@ phases:
      
   build:
     commands:
-      - echo build started at `date` for environemnt $ENV_NAME
+      - echo build started - at `date` for environemnt $ENV_NAME
       - sam build && sam package --s3-bucket janahitha-lambda-dev --output-template-file sam-template.yaml
       #- aws cloudformation package --template-file template.yaml --s3-bucket janahitha-lambda-dev --output-template-file sam-template.yaml
   post_build:
